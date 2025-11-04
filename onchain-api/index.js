@@ -91,8 +91,8 @@ async function getMarketLiquidity(connection, mint){
 async function calculateFees(solAmount, leverage, connection) {
   const lamports = solAmount * LAMPORTS_PER_SOL;
   const basePaidAmount = new BN(lamports);
-  
-  const baseFee = basePaidAmount.mul(new BN(200)).div(new BN(10000)); // 2%
+
+  const baseFee = basePaidAmount.mul(new BN(100)).div(new BN(10000)); // 1%
   const leverageFee = basePaidAmount.mul(new BN(10)).mul(new BN(leverage)).div(new BN(10000)); // 0.1% per leverage
   const percentageFee = baseFee.add(leverageFee);
   const accountFee = new BN(
